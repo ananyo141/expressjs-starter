@@ -16,7 +16,7 @@ export const isValidEmail = (email: any) => {
   return valid.test(email);
 };
 
-export const isBoolean = (value: any) => value === "true" || value === "false";
+export const isBoolean = (value: any) => typeof value === "boolean";
 
 export const isValidUserName = (userName: string) => {
   const regex = /^[a-z]+\d*[a-z\d]*$/;
@@ -26,8 +26,7 @@ export const isValidUserName = (userName: string) => {
 export const isObjectId = (value: any) =>
   mongoose.Types.ObjectId.isValid(value);
 
+// example, name functions with 'is' prefix, '_' to separate,
+// normalizer will return error with this name
 export const isprofessional_or_semiprofessional_or_amateur = (value: string) =>
   ["professional", "semiprofessional", "amateur"].includes(value);
-
-export const iswinner_or_loser = (groupType: string) =>
-  groupType === "winner" || groupType === "loser";
